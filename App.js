@@ -1,21 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppLoading } from 'expo';
+import { StyleSheet, View } from 'react-native';
+import Toast from 'react-native-toast-message';
+//Redux
+// import { AppProvider } from './Context/appContext';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
+
+//Context api
+import Auth from './Context/store/Auth';
+
+//screens
+import Header from './Shared/Header';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+//Navigators
+import Main from './Navigators/Main';
+
+// export default function App() {
+//   return (
+//     <AppProvider>
+//       <Provider store={store}>
+//         <NavigationContainer>
+//           <Header />
+//           <Main />
+//           <Toast />
+//         </NavigationContainer>
+//       </Provider>
+//     </AppProvider>
+//   );
+// }
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Auth>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Header />
+          <Main />
+          <Toast />
+        </NavigationContainer>
+      </Provider>
+    </Auth>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
