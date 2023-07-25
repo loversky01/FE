@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "mykn",
+    "slug": "mykn",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
